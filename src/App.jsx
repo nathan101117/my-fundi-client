@@ -24,7 +24,7 @@ import Transactions from "./pages/Transactions";
 import './styles/global.css';
 import "./styles/Home.css"; 
 import "./styles/About.css"; 
-import "./styles/Whyus.css"; 
+import "./styles/WhyUs.css"; 
 
 
 function App() {
