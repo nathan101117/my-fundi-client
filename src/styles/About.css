@@ -1,0 +1,92 @@
+.about-container {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+}
+
+/* Hero Section - Background Image & Text Styling */
+.hero {
+    background: url("/images/aboutus.png") no-repeat center center !important;
+    background-size: cover !important;
+    background-position: center;
+    background-attachment: fixed;
+    height: 60vh;
+    display: flex;
+    flex-direction: column; /* ✅ Stack text vertically */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 2rem;
+}
+
+/* Dark Overlay for Better Readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+/* Ensure text is on top of overlay */
+.hero h1, .hero p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make "About My Fundi" more prominent */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px; /* ✅ Adds space below heading */
+}
+
+/* Improve tagline visibility */
+.hero p {
+    font-size: 1.3rem;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+/* About Content Section */
+.about-content {
+    padding: 3rem;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.about-content h2 {
+    color: #007bff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Call to Action Section */
+.about-cta {
+    text-align: center;
+    padding: 3rem;
+    background: #007bff;
+    color: white;
+}
+
+/* CTA Button Styling */
+.primary-btn {
+    background: white;
+    color: #007bff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #0056b3;
+    color: white;
+}

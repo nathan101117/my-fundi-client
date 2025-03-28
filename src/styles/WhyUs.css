@@ -1,0 +1,49 @@
+.whyus-container {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+  }
+  
+  .hero {
+    background: url("https://source.unsplash.com/1600x900/?success,services") no-repeat center center/cover;
+    padding: 4rem 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .whyus-content {
+    padding: 3rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .benefit-card {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .whyus-cta {
+    text-align: center;
+    padding: 3rem;
+    background: #007bff;
+    color: white;
+  }
+  
+  .primary-btn {
+    background: white;
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  

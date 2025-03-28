@@ -1,0 +1,149 @@
+/* Global Styling */
+.home-container {
+    font-family: "Arial", sans-serif;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url("https://source.unsplash.com/1600x900/?construction,work") no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .hero-buttons {
+    margin-top: 1rem;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  .primary-btn {
+    background-color: #ff9900;
+    color: white;
+  }
+  
+  .secondary-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Categories Section */
+  .categories {
+    text-align: center;
+    padding: 3rem 0;
+    background: #f8f9fa;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .category-card {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* How It Works */
+  .how-it-works {
+    text-align: center;
+    padding: 3rem 0;
+  }
+  
+  .steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .step {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  /* Why Us */
+  .why-us {
+    text-align: center;
+    background: #e9ecef;
+    padding: 3rem 0;
+  }
+  
+  .benefits {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .benefit {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Testimonials */
+  .testimonials {
+    text-align: center;
+    padding: 3rem 0;
+  }
+  
+  .testimonial-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .testimonial {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+  }
+  
+  /* CTA Section */
+  .cta {
+    text-align: center;
+    padding: 3rem 0;
+    background: #007bff;
+    color: white;
+  }
+  
+  .cta h2 {
+    margin-bottom: 1rem;
+  }
+  
