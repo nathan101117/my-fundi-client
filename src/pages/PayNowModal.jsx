@@ -12,7 +12,7 @@ function PayNowModal({ show, onClose, job, onPaymentSuccess }) {
   useEffect(() => {
     if (job?.assignedArtisan) {
       axios
-        .get(`http://localhost:5000/api/artisans/${job.assignedArtisan}`, {
+        .get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/artisans/${job.assignedArtisan}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
@@ -31,7 +31,7 @@ function PayNowModal({ show, onClose, job, onPaymentSuccess }) {
     try {
       setLoading(true);
       await axios.post(
-        `http://localhost:5000/api/payments/pay/${job._id}`,  // Updated to the correct payment route
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/payments/pay/${job._id}`,  // Updated to the correct payment route
         { amount: parseFloat(agreedAmount) },
         { headers: { Authorization: `Bearer ${token}` } }
       );

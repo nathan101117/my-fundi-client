@@ -9,7 +9,7 @@ function ArtisanOffers() {
   const fetchOffers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/jobs/offers", {
+      const response = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/offers", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOffers(response.data);
@@ -28,7 +28,7 @@ function ArtisanOffers() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/jobs/accept-offer/${jobId}`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/accept-offer/${jobId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -44,7 +44,7 @@ function ArtisanOffers() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/jobs/reject-offer/${jobId}`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/reject-offer/${jobId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -11,7 +11,7 @@ function JobApplicants() {
     const fetchApplicants = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get(`http://localhost:5000/api/applications/job/${jobId}`, {
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/applications/job/${jobId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setApplicants(res.data);
@@ -23,7 +23,7 @@ function JobApplicants() {
     const fetchJob = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get(`http://localhost:5000/api/jobs/${jobId}`, {
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/${jobId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobTitle(res.data.title);
@@ -40,7 +40,7 @@ function JobApplicants() {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        `http://localhost:5000/api/jobs/accept-applicant/${jobId}/${artisanId}`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/accept-applicant/${jobId}/${artisanId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

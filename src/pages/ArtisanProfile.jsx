@@ -18,7 +18,7 @@ function ArtisanProfile() {
   useEffect(() => {
     const fetchArtisan = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/artisans/${id}`);
+        const response = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/artisans/${id}`);
         setArtisan(response.data);
         setLoading(false);
       } catch (error) {
@@ -29,7 +29,7 @@ function ArtisanProfile() {
 
     const fetchReviews = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/reviews/${id}`);
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/reviews/${id}`);
         setReviews(res.data);
       } catch (err) {
         console.error("❌ Error fetching reviews:", err);
@@ -56,7 +56,7 @@ function ArtisanProfile() {
         status: "Pending Acceptance",
       };
 
-      await axios.post("http://localhost:5000/api/jobs/hire", jobDetails, {
+      await axios.post("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/hire", jobDetails, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

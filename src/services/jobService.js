@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/jobs";
+const API_URL = "https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs";
 
 // ✅ Fetch jobs from MongoDB
 export const getJobs = async () => {

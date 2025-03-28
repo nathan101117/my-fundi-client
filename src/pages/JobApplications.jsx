@@ -10,7 +10,7 @@ function JobApplications() {
     const fetchClientJobs = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get("http://localhost:5000/api/jobs/client-jobs", {
+        const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/client-jobs", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setJobs(res.data);

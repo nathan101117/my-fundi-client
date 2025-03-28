@@ -24,7 +24,7 @@ function FindJobs() {
 
   const fetchJobs = (loggedInUser, token) => {
     axios
-      .get("http://localhost:5000/api/jobs", {
+      .get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -45,7 +45,7 @@ function FindJobs() {
 
   const fetchAppliedJobs = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/applications", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/applications", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -62,7 +62,7 @@ function FindJobs() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/applications/apply",
+        "https://myfundi-server-93521f94d28e.herokuapp.com/api/applications/apply",
         { jobId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

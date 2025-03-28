@@ -29,7 +29,7 @@ function Profile() {
       });
 
       axios
-        .get(`http://localhost:5000/api/reviews/${loggedInUser._id}`)
+        .get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/reviews/${loggedInUser._id}`)
         .then((res) => setReviews(res.data))
         .catch((err) => console.error("❌ Error fetching reviews:", err));
     }

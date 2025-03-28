@@ -14,7 +14,7 @@ function ReviewModal({ show, onClose, jobId, revieweeId, reviewerId, role, onRev
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:5000/api/reviews",
+        "https://myfundi-server-93521f94d28e.herokuapp.com/api/reviews",
         {
           jobId,
           reviewee: revieweeId,

@@ -12,16 +12,16 @@ function AdminDashboard() {
   const fetchData = async () => {
     try {
       const [userRes, jobRes, reviewRes, transactionRes] = await Promise.all([  // Added transaction fetch
-        axios.get("http://localhost:5000/api/admin/users", {
+        axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("http://localhost:5000/api/admin/jobs", {
+        axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/jobs", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("http://localhost:5000/api/admin/reviews", {
+        axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/reviews", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("http://localhost:5000/api/admin/transactions", {  // Fetch transactions
+        axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/transactions", {  // Fetch transactions
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -40,39 +40,39 @@ function AdminDashboard() {
 
   // 🔹 USER ACTIONS
   const suspendUser = async (id) => {
-    await axios.put(`http://localhost:5000/api/admin/users/${id}/suspend`);
+    await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users/${id}/suspend`);
     fetchData();
   };
 
   const activateUser = async (id) => {
-    await axios.put(`http://localhost:5000/api/admin/users/${id}/activate`);
+    await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users/${id}/activate`);
     fetchData();
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/users/${id}`);
+    await axios.delete(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users/${id}`);
     fetchData();
   };
 
   // 🔹 JOB ACTIONS
   const updateJobStatus = async (id, status) => {
-    await axios.put(`http://localhost:5000/api/admin/jobs/${id}/status`, { status });
+    await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/jobs/${id}/status`, { status });
     fetchData();
   };
 
   const deleteJob = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/jobs/${id}`);
+    await axios.delete(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/jobs/${id}`);
     fetchData();
   };
 
   // 🔹 REVIEW ACTIONS
   const flagReview = async (id) => {
-    await axios.put(`http://localhost:5000/api/admin/reviews/${id}/flag`);
+    await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/reviews/${id}/flag`);
     fetchData();
   };
 
   const deleteReview = async (id) => {
-    await axios.delete(`http://localhost:5000/api/admin/reviews/${id}`);
+    await axios.delete(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/reviews/${id}`);
     fetchData();
   };
 

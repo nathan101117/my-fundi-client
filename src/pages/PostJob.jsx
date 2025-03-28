@@ -23,7 +23,7 @@ function PostJob() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/jobs/post", jobData, {
+      const response = await axios.post("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/post", jobData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

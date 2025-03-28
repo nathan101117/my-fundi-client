@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/auth";  // ✅ Correct base URL
+const API_URL = "https://myfundi-server-93521f94d28e.herokuapp.com/api/auth";  // ✅ Correct base URL
 
 export const registerUser = async (userData) => {
     try {

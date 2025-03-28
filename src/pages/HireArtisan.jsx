@@ -40,7 +40,7 @@ function HireArtisan() {
 
   const fetchArtisans = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/artisans");
+      const response = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/artisans");
       setArtisans(response.data);
       setFilteredArtisans(response.data);
     } catch (error) {
@@ -93,7 +93,7 @@ function HireArtisan() {
         status: "Pending Acceptance", // Offer system
       };
 
-      await axios.post("http://localhost:5000/api/jobs/hire", jobDetails, {
+      await axios.post("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/hire", jobDetails, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

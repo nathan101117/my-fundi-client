@@ -21,7 +21,7 @@ function TopUp() {
   
       // Send request with token in the Authorization header
       const res = await axios.put(
-        `http://localhost:5000/api/wallet/${user.id}/topup`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/wallet/${user.id}/topup`,
         { amount: topUpAmount },
         {
           headers: {

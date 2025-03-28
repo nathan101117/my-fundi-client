@@ -22,7 +22,7 @@ function Transactions() {
     // Fetch wallet and transaction history
     const fetchTransactions = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/transactions/${user.id}`, {
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/transactions/${user.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -37,7 +37,7 @@ function Transactions() {
 
     const fetchWallet = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/wallet/${user.id}`, {
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/wallet/${user.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -62,7 +62,7 @@ function Transactions() {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/wallet/${user.id}/topup`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/wallet/${user.id}/topup`,
         { amount: topUpAmount },
         {
           headers: {

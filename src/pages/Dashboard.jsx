@@ -73,7 +73,7 @@ function Dashboard() {
   // ======= Client fetches =======
   const fetchClientJobs = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/client-jobs", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/client-jobs", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClientJobs(res.data); // All jobs posted by this client
@@ -84,7 +84,7 @@ function Dashboard() {
 
   const fetchClientCompleted = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/client-completed", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/client-completed", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClientCompleted(res.data);  // Make sure to set 'clientCompleted'
@@ -95,7 +95,7 @@ function Dashboard() {
 
   const fetchClientPaidJobs = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/client-paid", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/client-paid", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClientPaidJobs(res.data);
@@ -107,7 +107,7 @@ function Dashboard() {
   // ======= Artisan fetches =======
   const fetchArtisanOngoing = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/artisan-jobs", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/artisan-jobs", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setArtisanOngoing(res.data); // In Progress jobs for artisan
@@ -118,7 +118,7 @@ function Dashboard() {
 
   const fetchArtisanCompleted = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/artisan-completed", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/artisan-completed", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setArtisanCompleted(res.data); // Completed jobs for artisan
@@ -129,7 +129,7 @@ function Dashboard() {
 
   const fetchArtisanPaidJobs = async (token) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/artisan-paid", {
+      const res = await axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/artisan-paid", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setArtisanPaidJobs(res.data); // Update the state with the paid jobs data
@@ -141,7 +141,7 @@ function Dashboard() {
   const fetchArtisanApplied = async (token) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/applications/artisan/${user._id}`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/applications/artisan/${user._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const appliedJobObjects = res.data
@@ -359,7 +359,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/jobs/update/${jobId}`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/update/${jobId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -379,7 +379,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
       // Mark job as completed
       await axios.put(
-        `http://localhost:5000/api/jobs/update/${jobId}`,
+        `https://myfundi-server-93521f94d28e.herokuapp.com/api/jobs/update/${jobId}`,
         { status: "Completed" },
         { headers: { Authorization: `Bearer ${token}` } }
       );

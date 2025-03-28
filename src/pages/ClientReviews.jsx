@@ -12,7 +12,7 @@ function ClientReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/reviews/${clientId}`);
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/reviews/${clientId}`);
         setReviews(res.data);
       } catch (err) {
         console.error("❌ Error fetching reviews:", err);
@@ -21,7 +21,7 @@ function ClientReviews() {
 
     const fetchClient = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/users/${clientId}`);
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/users/${clientId}`);
         setClient(res.data);
       } catch (err) {
         console.error("❌ Error fetching client:", err);

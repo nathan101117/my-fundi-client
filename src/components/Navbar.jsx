@@ -19,7 +19,7 @@ function Navbar() {
       if (!user || !token) return;
     
       try {
-        const res = await axios.get(`http://localhost:5000/api/wallet/${user.id}`, {
+        const res = await axios.get(`https://myfundi-server-93521f94d28e.herokuapp.com/api/wallet/${user.id}`, {
           headers: {
             Authorization: `Bearer ${token}` // Include token in the Authorization header
           }
