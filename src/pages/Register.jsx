@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../services/authService";
-import { ARTISAN_TYPES } from "../utils/constants"; // ✅ Import artisan types
+import { ARTISAN_TYPES } from "../utils/constants"; //  Import artisan types
 
 function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phoneNumber: "", // ✅ Added phone number field
+    phoneNumber: "", 
     password: "",
     role: "client",
-    location: "", // ✅ Location for both clients & artisans
+    location: "", // Location for both clients & artisans
     craft: "", // Only for artisans
-    description: "", // ✅ Artisan Bio/Portfolio
-    consultationFee: "", // ✅ Fee for direct hiring
-    standardRate: "" // ✅ Default pricing
+    description: "", // Artisan Bio/Portfolio
+    consultationFee: "", // Fee for consultation 
+    standardRate: "" //  Default pricing
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

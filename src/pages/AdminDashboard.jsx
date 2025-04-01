@@ -1,17 +1,39 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// 📊 Chart.js imports
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+// Register chart components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [jobs, setJobs] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [transactions, setTransactions] = useState([]); // New state for transactions
+  const [transactions, setTransactions] = useState([]);
 
   const token = localStorage.getItem("token");
 
   const fetchData = async () => {
     try {
-      const [userRes, jobRes, reviewRes, transactionRes] = await Promise.all([  // Added transaction fetch
+      const [userRes, jobRes, reviewRes, transactionRes] = await Promise.all([
         axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users", {
           headers: { Authorization: `Bearer ${token}` },
         }),
@@ -21,14 +43,14 @@ function AdminDashboard() {
         axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/reviews", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/transactions", {  // Fetch transactions
+        axios.get("https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/transactions", {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
       setUsers(userRes.data);
       setJobs(jobRes.data);
       setReviews(reviewRes.data);
-      setTransactions(transactionRes.data);  // Set transactions
+      setTransactions(transactionRes.data);
     } catch (err) {
       console.error("❌ Admin data fetch error:", err);
     }
@@ -38,7 +60,26 @@ function AdminDashboard() {
     fetchData();
   }, []);
 
-  // 🔹 USER ACTIONS
+  // 🔹 Chart Data
+  const chartData = {
+    labels: ["Users", "Jobs", "Reviews", "Transactions"],
+    datasets: [
+      {
+        label: "Platform Statistics",
+        data: [users.length, jobs.length, reviews.length, transactions.length],
+        backgroundColor: "rgba(75, 192, 192, 0.5)",
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { position: "top" },
+      title: { display: true, text: "Admin Dashboard Overview" },
+    },
+  };
+
   const suspendUser = async (id) => {
     await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users/${id}/suspend`);
     fetchData();
@@ -54,7 +95,6 @@ function AdminDashboard() {
     fetchData();
   };
 
-  // 🔹 JOB ACTIONS
   const updateJobStatus = async (id, status) => {
     await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/jobs/${id}/status`, { status });
     fetchData();
@@ -65,7 +105,6 @@ function AdminDashboard() {
     fetchData();
   };
 
-  // 🔹 REVIEW ACTIONS
   const flagReview = async (id) => {
     await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/reviews/${id}/flag`);
     fetchData();
@@ -76,8 +115,7 @@ function AdminDashboard() {
     fetchData();
   };
 
-   // 🔹 TRANSACTION ACTIONS
-   const renderTransactions = () => {
+  const renderTransactions = () => {
     return transactions.map((transaction) => (
       <div key={transaction._id} className="border p-2 mb-2 d-flex justify-content-between align-items-center">
         <div>
@@ -98,6 +136,12 @@ function AdminDashboard() {
   return (
     <div className="container mt-5">
       <h1>🛠️ Admin Dashboard</h1>
+
+      {/* 📊 Chart Section */}
+      <div className="card p-4 shadow mt-4">
+        <h3>📈 Platform Overview Chart</h3>
+        <Bar data={chartData} options={chartOptions} />
+      </div>
 
       {/* USERS */}
       <div className="card p-4 shadow mt-4">
@@ -165,3 +209,4 @@ function AdminDashboard() {
 }
 
 export default AdminDashboard;
+
