@@ -3,11 +3,13 @@ import axios from "axios";
 
 // 📊 Chart.js imports
 import { Bar } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -18,6 +20,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -79,6 +82,43 @@ function AdminDashboard() {
       title: { display: true, text: "Admin Dashboard Overview" },
     },
   };
+
+  const doughnutData = {
+    labels: ['Users', 'Jobs', 'Reviews', 'Transactions'],
+    datasets: [
+      {
+        label: 'Platform Distribution',
+        data: [users.length, jobs.length, reviews.length, transactions.length],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.7)',   // Red
+          'rgba(54, 162, 235, 0.7)',   // Blue
+          'rgba(255, 206, 86, 0.7)',   // Yellow
+          'rgba(75, 192, 192, 0.7)',   // Teal
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+  
+  const doughnutOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Platform Distribution Chart',
+      },
+    },
+  };
+  
 
   const suspendUser = async (id) => {
     await axios.put(`https://myfundi-server-93521f94d28e.herokuapp.com/api/admin/users/${id}/suspend`);
@@ -142,6 +182,13 @@ function AdminDashboard() {
         <h3>📈 Platform Overview Chart</h3>
         <Bar data={chartData} options={chartOptions} />
       </div>
+
+      {/* 🍩 Doughnut Chart Section */}
+      <div className="card p-4 shadow mt-4">
+        <h3>🍩 Platform Distribution</h3>
+        <Doughnut data={doughnutData} options={doughnutOptions} />
+      </div>
+
 
       {/* USERS */}
       <div className="card p-4 shadow mt-4">
